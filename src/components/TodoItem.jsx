@@ -6,9 +6,15 @@ const TodoItemContainer = styled.div`
   margin: 30px;
   padding: 10px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   background-color: white;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `;
 
 const DeleteButton = styled.button`
@@ -16,8 +22,15 @@ const DeleteButton = styled.button`
   color: #fff;
   border: none;
   border-radius: 15px;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+
+  @media (min-width: 600px) {
+    width: auto;
+    margin-top: 0;
+  }
 `;
 
 const MarkCompleteButton = styled.button`
@@ -25,20 +38,43 @@ const MarkCompleteButton = styled.button`
   color: #fff;
   border: none;
   border-radius: 15px;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+
+  @media (min-width: 600px) {
+    width: auto;
+    margin-top: 0;
+    margin-right: 10px;
+  }
 `;
 
 const StyledHeader = styled.h3`
   color: #333;
   margin: 0;
   font-size: 1.5em;
+  text-align: center;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    text-align: left;
+    width: auto;
+  }
 `;
 
 const StyledParagraph = styled.p`
   color: #333;
-  margin: 0;
+  margin: 15px;
   font-size: 1.1em;
+  text-align: center;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    text-align: left;
+    width: auto;
+    margin-left: 20px;
+  }
 `;
 
 const TodoItem = ({ todo, onToggleComplete, onDelete }) => {

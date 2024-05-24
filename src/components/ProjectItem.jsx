@@ -9,6 +9,7 @@ const StyledInput = styled.input`
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #333;
+  width: 90%;
 `;
 
 const StyledButton = styled.button`
@@ -24,6 +25,7 @@ const StyledButton = styled.button`
     color: #333;
     cursor: not-allowed;
   }
+  width: 90%;
 `;
 
 const StyledSelect = styled.select`
@@ -31,6 +33,50 @@ const StyledSelect = styled.select`
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #333;
+  width: 90%;
+`;
+
+const StyledOption = styled.option`
+  padding: 5px;
+`;
+
+const StyledHeader = styled.h2`
+  margin: 10px;
+  text-align: center;
+`;
+
+const StyledInnerDiv = styled.div`
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #f0f0f0;
+  height: auto;
+`;
+
+const StyledOuterDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 90%;
+
+  @media (min-width: 600px) {
+    width: 80%;
+  }
+
+  @media (min-width: 768px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
 `;
 
 const ProjectItem = ({ project, projectIndex }) => {
@@ -80,8 +126,8 @@ const ProjectItem = ({ project, projectIndex }) => {
     newTodo.priority;
 
   return (
-    <div>
-      <h2>{project.name}</h2>
+    <StyledOuterDiv>
+      <StyledHeader>{project.name}</StyledHeader>
       {project.todos.map((todo, index) => (
         <TodoItem
           key={index}
@@ -90,7 +136,7 @@ const ProjectItem = ({ project, projectIndex }) => {
           onDelete={() => handleDeleteTodo(index)}
         />
       ))}
-      <div>
+      <StyledInnerDiv>
         <StyledInput
           type="text"
           placeholder="Title"
@@ -118,15 +164,15 @@ const ProjectItem = ({ project, projectIndex }) => {
           onChange={(e) => setNewTodo({ ...newTodo, priority: e.target.value })}
           required
         >
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
+          <StyledOption value="low">Low</StyledOption>
+          <StyledOption value="medium">Medium</StyledOption>
+          <StyledOption value="high">High</StyledOption>
         </StyledSelect>
         <StyledButton onClick={handleAddTodo} disabled={!isFormValid}>
-          Add Todo
+          + New Task
         </StyledButton>
-      </div>
-    </div>
+      </StyledInnerDiv>
+    </StyledOuterDiv>
   );
 };
 
