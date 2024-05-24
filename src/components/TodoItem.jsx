@@ -18,8 +18,8 @@ const TodoItemContainer = styled.div`
 `;
 
 const DeleteButton = styled.button`
-  background-color: #f00;
-  color: #fff;
+  background-color: gray;
+  color: black;
   border: none;
   border-radius: 15px;
   padding: 10px;
@@ -34,8 +34,8 @@ const DeleteButton = styled.button`
 `;
 
 const MarkCompleteButton = styled.button`
-  background-color: #0f0;
-  color: #fff;
+  background-color: lightgrey;
+  color: black;
   border: none;
   border-radius: 15px;
   padding: 10px;

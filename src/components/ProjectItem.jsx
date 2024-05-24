@@ -10,6 +10,10 @@ const StyledInput = styled.input`
   border-radius: 5px;
   border: 1px solid #333;
   width: 90%;
+
+  @media (max-width: 600px) {
+    max-width: 90%;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -38,11 +42,6 @@ const StyledSelect = styled.select`
 
 const StyledOption = styled.option`
   padding: 5px;
-`;
-
-const StyledHeader = styled.h2`
-  margin: 10px;
-  text-align: center;
 `;
 
 const StyledInnerDiv = styled.div`
@@ -127,7 +126,6 @@ const ProjectItem = ({ project, projectIndex }) => {
 
   return (
     <StyledOuterDiv>
-      <StyledHeader>{project.name}</StyledHeader>
       {project.todos.map((todo, index) => (
         <TodoItem
           key={index}
@@ -169,7 +167,7 @@ const ProjectItem = ({ project, projectIndex }) => {
           <StyledOption value="high">High</StyledOption>
         </StyledSelect>
         <StyledButton onClick={handleAddTodo} disabled={!isFormValid}>
-          + New Task
+          + New Task/Project
         </StyledButton>
       </StyledInnerDiv>
     </StyledOuterDiv>
